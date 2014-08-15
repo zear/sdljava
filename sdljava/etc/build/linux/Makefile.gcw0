@@ -3,7 +3,7 @@ SWIG = swig
 CC = /opt/gcw0-toolchain/usr/bin/mipsel-linux-gcc
 SYSROOT = $(shell $(CC) -print-sysroot)
 
-CFLAGS=-O3 -fPIC -ffunction-sections -ffast-math -fsingle-precision-constant -mips32 -mtune=mips32 -mbranch-likely -G0
+CFLAGS=-O3 -fPIC
 
 INCLUDE=-I. -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux $(shell $(SYSROOT)/usr/bin/sdl-config --cflags)
 
