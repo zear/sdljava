@@ -108,37 +108,37 @@ static void SWIG_JavaThrowException(JNIEnv *jenv, SWIG_JavaExceptionCodes code, 
     return TTF_RenderUTF8_Blended(font, text, color);
   }
 
-extern int TTF_Init(void);
-extern TTF_Font *TTF_OpenFont(char const *,int);
-extern TTF_Font *TTF_OpenFontIndex(char const *,int,long);
-extern int TTF_GetFontStyle(TTF_Font *);
-extern void TTF_SetFontStyle(TTF_Font *,int);
-extern int TTF_FontHeight(TTF_Font *);
-extern int TTF_FontAscent(TTF_Font *);
-extern int TTF_FontDescent(TTF_Font *);
-extern int TTF_FontLineSkip(TTF_Font *);
-extern long TTF_FontFaces(TTF_Font *);
-extern int TTF_FontFaceIsFixedWidth(TTF_Font *);
-extern char *TTF_FontFaceFamilyName(TTF_Font *);
-extern char *TTF_FontFaceStyleName(TTF_Font *);
-extern int TTF_GlyphMetrics(TTF_Font *,Uint16,int *,int *,int *,int *,int *);
-extern int TTF_SizeText(TTF_Font *,char const *,int *,int *);
-extern int TTF_SizeUTF8(TTF_Font *,char const *,int *,int *);
-extern int TTF_SizeUNICODE(TTF_Font *,Uint16 const *,int *,int *);
-extern SDL_Surface *TTF_RenderText_Solid_FAST(TTF_Font *,char const *,Uint8,Uint8,Uint8);
-extern SDL_Surface *TTF_RenderUTF8_Solid(TTF_Font *,char const *,SDL_Color);
-extern SDL_Surface *TTF_RenderUNICODE_Solid(TTF_Font *,Uint16 const *,SDL_Color);
-extern SDL_Surface *TTF_RenderText_Shaded_FAST(TTF_Font *,char const *,Uint8,Uint8,Uint8,Uint8,Uint8,Uint8);
-extern SDL_Surface *TTF_RenderUTF8_Shaded(TTF_Font *,char const *,SDL_Color,SDL_Color);
-extern SDL_Surface *TTF_RenderUNICODE_Shaded(TTF_Font *,Uint16 const *,SDL_Color,SDL_Color);
-extern SDL_Surface *TTF_RenderGlyph_Shaded(TTF_Font *,Uint16,SDL_Color,SDL_Color);
-extern SDL_Surface *TTF_RenderText_Blended_FAST(TTF_Font *,char const *,Uint8,Uint8,Uint8);
-extern SDL_Surface *TTF_RenderUTF8_Blended(TTF_Font *,char const *,SDL_Color);
-extern SDL_Surface *TTF_RenderUNICODE_Blended(TTF_Font *,Uint16 const *,SDL_Color);
-extern SDL_Surface *TTF_RenderGlyph_Blended(TTF_Font *,Uint16,SDL_Color);
-extern void TTF_CloseFont(TTF_Font *);
-extern void TTF_Quit(void);
-extern SDL_version SWIG_TTF_VERSION();
+/*extern int TTF_Init(void);*/
+/*extern TTF_Font *TTF_OpenFont(char const *,int);*/
+/*extern TTF_Font *TTF_OpenFontIndex(char const *,int,long);*/
+/*extern int TTF_GetFontStyle(TTF_Font *);*/
+/*extern void TTF_SetFontStyle(TTF_Font *,int);*/
+/*extern int TTF_FontHeight(TTF_Font *);*/
+/*extern int TTF_FontAscent(TTF_Font *);*/
+/*extern int TTF_FontDescent(TTF_Font *);*/
+/*extern int TTF_FontLineSkip(TTF_Font *);*/
+/*extern long TTF_FontFaces(TTF_Font *);*/
+/*extern int TTF_FontFaceIsFixedWidth(TTF_Font *);*/
+/*extern char *TTF_FontFaceFamilyName(TTF_Font *);*/
+/*extern char *TTF_FontFaceStyleName(TTF_Font *);*/
+/*extern int TTF_GlyphMetrics(TTF_Font *,Uint16,int *,int *,int *,int *,int *);*/
+/*extern int TTF_SizeText(TTF_Font *,char const *,int *,int *);*/
+/*extern int TTF_SizeUTF8(TTF_Font *,char const *,int *,int *);*/
+/*extern int TTF_SizeUNICODE(TTF_Font *,Uint16 const *,int *,int *);*/
+/*extern SDL_Surface *TTF_RenderText_Solid_FAST(TTF_Font *,char const *,Uint8,Uint8,Uint8);*/
+/*extern SDL_Surface *TTF_RenderUTF8_Solid(TTF_Font *,char const *,SDL_Color);*/
+/*extern SDL_Surface *TTF_RenderUNICODE_Solid(TTF_Font *,Uint16 const *,SDL_Color);*/
+/*extern SDL_Surface *TTF_RenderText_Shaded_FAST(TTF_Font *,char const *,Uint8,Uint8,Uint8,Uint8,Uint8,Uint8);*/
+/*extern SDL_Surface *TTF_RenderUTF8_Shaded(TTF_Font *,char const *,SDL_Color,SDL_Color);*/
+/*extern SDL_Surface *TTF_RenderUNICODE_Shaded(TTF_Font *,Uint16 const *,SDL_Color,SDL_Color);*/
+/*extern SDL_Surface *TTF_RenderGlyph_Shaded(TTF_Font *,Uint16,SDL_Color,SDL_Color);*/
+/*extern SDL_Surface *TTF_RenderText_Blended_FAST(TTF_Font *,char const *,Uint8,Uint8,Uint8);*/
+/*extern SDL_Surface *TTF_RenderUTF8_Blended(TTF_Font *,char const *,SDL_Color);*/
+/*extern SDL_Surface *TTF_RenderUNICODE_Blended(TTF_Font *,Uint16 const *,SDL_Color);*/
+/*extern SDL_Surface *TTF_RenderGlyph_Blended(TTF_Font *,Uint16,SDL_Color);*/
+/*extern void TTF_CloseFont(TTF_Font *);*/
+/*extern void TTF_Quit(void);*/
+/*extern SDL_version SWIG_TTF_VERSION();*/
 
 #ifdef __cplusplus
 extern "C" {

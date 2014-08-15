@@ -868,73 +868,73 @@ jdoubleArray SWIG_JavaArrayOutDouble (JNIEnv *jenv, double *result, jsize sz) {
 
 #endif
 
-extern char *SDL_VideoDriverName(char *,int);
-extern SDL_Surface *SDL_GetVideoSurface(void);
-extern SDL_VideoInfo const *SDL_GetVideoInfo(void);
-extern int SDL_VideoModeOK(int,int,int,Uint32);
-extern SDL_Rect **SDL_ListModes(SDL_PixelFormat *,Uint32);
-extern SDL_Surface *SDL_SetVideoMode(int,int,int,Uint32);
-extern void SDL_UpdateRects(SDL_Surface *,int,SDL_Rect *);
-extern void SDL_UpdateRect(SDL_Surface *,Sint32,Sint32,Uint32,Uint32);
-extern int SDL_Flip(SDL_Surface *);
-extern int SDL_SetGamma(float,float,float);
-extern int SDL_GetGammaRamp(Uint16 *,Uint16 *,Uint16 *);
-extern int SDL_SetColors(SDL_Surface *,SDL_Color *,int,int);
-extern int SDL_SetPalette(SDL_Surface *,int,SDL_Color *,int,int);
-extern Uint32 SDL_MapRGB(SDL_PixelFormat *,Uint8,Uint8,Uint8);
-extern Uint32 SDL_MapRGBA(SDL_PixelFormat *,Uint8,Uint8,Uint8,Uint8);
-extern void SDL_GetRGB(Uint32,SDL_PixelFormat *,Uint8 *,Uint8 *,Uint8 *);
-extern void SDL_GetRGBA(Uint32,SDL_PixelFormat *,Uint8 *,Uint8 *,Uint8 *,Uint8 *);
-extern SDL_Surface *SDL_CreateRGBSurface(Uint32,int,int,int,Uint32,Uint32,Uint32,Uint32);
-extern void SDL_FreeSurface(SDL_Surface *);
-extern int SDL_LockSurface(SDL_Surface *);
-extern void SDL_UnlockSurface(SDL_Surface *);
-extern int SDL_SetColorKey(SDL_Surface *,Uint32,Uint32);
-extern int SDL_SetAlpha(SDL_Surface *,Uint32,Uint8);
-extern int SWIG_SDL_SetClipRect(SDL_Surface *,SDL_Rect *);
-extern void SDL_GetClipRect(SDL_Surface *,SDL_Rect *);
-extern SDL_Surface *SDL_ConvertSurface(SDL_Surface *,SDL_PixelFormat *,Uint32);
-extern SDL_Surface *SDL_DisplayFormat(SDL_Surface *);
-extern SDL_Surface *SDL_DisplayFormatAlpha(SDL_Surface *);
-extern void SDL_WarpMouse(Uint16,Uint16);
-extern SDL_Cursor *SDL_CreateCursor(Uint8 *,Uint8 *,int,int,int,int);
-extern SDL_Overlay *SDL_CreateYUVOverlay(int,int,Uint32,SDL_Surface *);
-extern int SDL_LockYUVOverlay(SDL_Overlay *);
-extern void SDL_UnlockYUVOverlay(SDL_Overlay *);
-extern int SDL_DisplayYUVOverlay(SDL_Overlay *,SDL_Rect *);
-extern void SDL_FreeYUVOverlay(SDL_Overlay *);
-extern int SDL_GL_LoadLibrary(char const *);
-extern int SDL_GL_SetAttribute(SDL_GLattr,int);
-extern int SDL_GL_GetAttribute(SDL_GLattr,int *);
-extern void SDL_GL_SwapBuffers(void);
-extern void SDL_GL_UpdateRects(int,SDL_Rect *);
-extern void SDL_GL_Lock(void);
-extern void SDL_GL_Unlock(void);
-extern void SDL_WM_SetCaption(char const *,char const *);
-extern void SWIG_SDL_WM_GetCaption(char *,char *);
-extern void SDL_WM_SetIcon(SDL_Surface *,Uint8 *);
-extern int SDL_WM_IconifyWindow(void);
-extern int SDL_WM_ToggleFullScreen(SDL_Surface *);
-extern SDL_GrabMode SDL_WM_GrabInput(SDL_GrabMode);
-extern SDL_Surface *SWIG_SDL_LoadBMP(char *);
-extern int SWIG_SDL_SaveBMP(SDL_Surface *,char const *);
-extern int SWIG_SDL_FillRect_FAST(SDL_Surface *,int,int,int,int,Uint32);
-extern int SWIG_SDL_BlitSurface_FAST(SDL_Surface *,int,int,int,int,SDL_Surface *,int,int,int,int);
-extern int SWIG_SDL_SetColors(SDL_Surface *,SDL_Color [],int,int);
-extern int SWIG_SDL_SetPalette(SDL_Surface *,int,SDL_Color [],int,int);
-extern void SWIG_GetPaletteColors(SDL_Palette *,SDL_Color []);
-extern int SWIG_SDL_SetGammaRamp(Uint16 [],Uint16 [],Uint16 []);
-extern SDL_Surface *SWIG_SDL_CreateRGBSurfaceFrom(Uint16 [],int,int,int,int,Uint32,Uint32,Uint32,Uint32);
-extern void SWIG_GetPixelData32(SDL_Surface *,int []);
-extern void SWIG_GetPixelData16(SDL_Surface *,Uint16 []);
-extern void SWIG_GetPixelData8(SDL_Surface *,Uint8 []);
-extern void SWIG_SetPixelData32(SDL_Surface *,int []);
-extern void SWIG_SetPixelData16(SDL_Surface *,Uint16 []);
-extern void SWIG_SetPixelData8(SDL_Surface *,Uint8 []);
-extern void SWIG_executeBlitQueue(void *,void *,void *,void *,SDL_Surface *,void *,void *,void *,void *,SDL_Surface *,int);
-extern int SWIG_SDL_MUSTLOCK(SDL_Surface *);
-extern jobject SWIG_getPixelDirectByteBuffer(SDL_Surface *);
-extern jobject SWIG_getOverlayPixelsDirectByteBuffer(SDL_Overlay *,int);
+/*extern char *SDL_VideoDriverName(char *,int);*/
+/*extern SDL_Surface *SDL_GetVideoSurface(void);*/
+/*extern SDL_VideoInfo const *SDL_GetVideoInfo(void);*/
+/*extern int SDL_VideoModeOK(int,int,int,Uint32);*/
+/*extern SDL_Rect **SDL_ListModes(SDL_PixelFormat *,Uint32);*/
+/*extern SDL_Surface *SDL_SetVideoMode(int,int,int,Uint32);*/
+/*extern void SDL_UpdateRects(SDL_Surface *,int,SDL_Rect *);*/
+/*extern void SDL_UpdateRect(SDL_Surface *,Sint32,Sint32,Uint32,Uint32);*/
+/*extern int SDL_Flip(SDL_Surface *);*/
+/*extern int SDL_SetGamma(float,float,float);*/
+/*extern int SDL_GetGammaRamp(Uint16 *,Uint16 *,Uint16 *);*/
+/*extern int SDL_SetColors(SDL_Surface *,SDL_Color *,int,int);*/
+/*extern int SDL_SetPalette(SDL_Surface *,int,SDL_Color *,int,int);*/
+/*extern Uint32 SDL_MapRGB(SDL_PixelFormat *,Uint8,Uint8,Uint8);*/
+/*extern Uint32 SDL_MapRGBA(SDL_PixelFormat *,Uint8,Uint8,Uint8,Uint8);*/
+/*extern void SDL_GetRGB(Uint32,SDL_PixelFormat *,Uint8 *,Uint8 *,Uint8 *);*/
+/*extern void SDL_GetRGBA(Uint32,SDL_PixelFormat *,Uint8 *,Uint8 *,Uint8 *,Uint8 *);*/
+/*extern SDL_Surface *SDL_CreateRGBSurface(Uint32,int,int,int,Uint32,Uint32,Uint32,Uint32);*/
+/*extern void SDL_FreeSurface(SDL_Surface *);*/
+/*extern int SDL_LockSurface(SDL_Surface *);*/
+/*extern void SDL_UnlockSurface(SDL_Surface *);*/
+/*extern int SDL_SetColorKey(SDL_Surface *,Uint32,Uint32);*/
+/*extern int SDL_SetAlpha(SDL_Surface *,Uint32,Uint8);*/
+/*extern int SWIG_SDL_SetClipRect(SDL_Surface *,SDL_Rect *);*/
+/*extern void SDL_GetClipRect(SDL_Surface *,SDL_Rect *);*/
+/*extern SDL_Surface *SDL_ConvertSurface(SDL_Surface *,SDL_PixelFormat *,Uint32);*/
+/*extern SDL_Surface *SDL_DisplayFormat(SDL_Surface *);*/
+/*extern SDL_Surface *SDL_DisplayFormatAlpha(SDL_Surface *);*/
+/*extern void SDL_WarpMouse(Uint16,Uint16);*/
+/*extern SDL_Cursor *SDL_CreateCursor(Uint8 *,Uint8 *,int,int,int,int);*/
+/*extern SDL_Overlay *SDL_CreateYUVOverlay(int,int,Uint32,SDL_Surface *);*/
+/*extern int SDL_LockYUVOverlay(SDL_Overlay *);*/
+/*extern void SDL_UnlockYUVOverlay(SDL_Overlay *);*/
+/*extern int SDL_DisplayYUVOverlay(SDL_Overlay *,SDL_Rect *);*/
+/*extern void SDL_FreeYUVOverlay(SDL_Overlay *);*/
+/*extern int SDL_GL_LoadLibrary(char const *);*/
+/*extern int SDL_GL_SetAttribute(SDL_GLattr,int);*/
+/*extern int SDL_GL_GetAttribute(SDL_GLattr,int *);*/
+/*extern void SDL_GL_SwapBuffers(void);*/
+/*extern void SDL_GL_UpdateRects(int,SDL_Rect *);*/
+/*extern void SDL_GL_Lock(void);*/
+/*extern void SDL_GL_Unlock(void);*/
+/*extern void SDL_WM_SetCaption(char const *,char const *);*/
+/*extern void SWIG_SDL_WM_GetCaption(char *,char *);*/
+/*extern void SDL_WM_SetIcon(SDL_Surface *,Uint8 *);*/
+/*extern int SDL_WM_IconifyWindow(void);*/
+/*extern int SDL_WM_ToggleFullScreen(SDL_Surface *);*/
+/*extern SDL_GrabMode SDL_WM_GrabInput(SDL_GrabMode);*/
+/*extern SDL_Surface *SWIG_SDL_LoadBMP(char *);*/
+/*extern int SWIG_SDL_SaveBMP(SDL_Surface *,char const *);*/
+/*extern int SWIG_SDL_FillRect_FAST(SDL_Surface *,int,int,int,int,Uint32);*/
+/*extern int SWIG_SDL_BlitSurface_FAST(SDL_Surface *,int,int,int,int,SDL_Surface *,int,int,int,int);*/
+/*extern int SWIG_SDL_SetColors(SDL_Surface *,SDL_Color [],int,int);*/
+/*extern int SWIG_SDL_SetPalette(SDL_Surface *,int,SDL_Color [],int,int);*/
+/*extern void SWIG_GetPaletteColors(SDL_Palette *,SDL_Color []);*/
+/*extern int SWIG_SDL_SetGammaRamp(Uint16 [],Uint16 [],Uint16 []);*/
+/*extern SDL_Surface *SWIG_SDL_CreateRGBSurfaceFrom(Uint16 [],int,int,int,int,Uint32,Uint32,Uint32,Uint32);*/
+/*extern void SWIG_GetPixelData32(SDL_Surface *,int []);*/
+/*extern void SWIG_GetPixelData16(SDL_Surface *,Uint16 []);*/
+/*extern void SWIG_GetPixelData8(SDL_Surface *,Uint8 []);*/
+/*extern void SWIG_SetPixelData32(SDL_Surface *,int []);*/
+/*extern void SWIG_SetPixelData16(SDL_Surface *,Uint16 []);*/
+/*extern void SWIG_SetPixelData8(SDL_Surface *,Uint8 []);*/
+/*extern void SWIG_executeBlitQueue(void *,void *,void *,void *,SDL_Surface *,void *,void *,void *,void *,SDL_Surface *,int);*/
+/*extern int SWIG_SDL_MUSTLOCK(SDL_Surface *);*/
+/*extern jobject SWIG_getPixelDirectByteBuffer(SDL_Surface *);*/
+/*extern jobject SWIG_getOverlayPixelsDirectByteBuffer(SDL_Overlay *,int);*/
 
 #ifdef __cplusplus
 extern "C" {
