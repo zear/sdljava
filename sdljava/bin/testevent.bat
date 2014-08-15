@@ -1,0 +1,1 @@
+runtest sdljava.event.SDLEventTest

@@ -1,0 +1,1 @@
+runtest sdljavax.gfx.SDLGfxTest

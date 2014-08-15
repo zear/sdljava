@@ -1,0 +1,8 @@
+2005-02-09  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* Makefile (Repository): native code generation disabled by default
+
+2005-01-30  Bart LEBOEUF  <bartleboeuf@yahoo.fr>
+
+	* Makefile (Repository): added targets for swig mapping
+	* VisualC.zip (Repository): add workspace and projects for building sdljava libraries

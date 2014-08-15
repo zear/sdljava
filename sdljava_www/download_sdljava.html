@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+  <HEAD>
+    <meta name="description" content="Home of sdljava -- java binding to SDL"/>
+    <meta name="keywords" contents="sdl,java,software,development,game,programming,C++,C,C/C++,jni,sun,opengl,3D,rendering,design,swig,native,libsdl,glew,ftgl,fast,binding"/>
+    <TITLE>sdljava Download (Java Binding to SDL)(11-Feb-2005)</TITLE>
+    <!-- Created by: Ivan Z. Ganza, 23-Dec-2004 -->
+    <!-- Changed by: Ivan Z. Ganza, 11-Feb-2005 -->
+    
+    <link rel="stylesheet" type="text/css" href="sdljava.css">
+  </HEAD>
+  <BODY>
+    <span style="visibility: hidden;">.</span>
+
+    <div id="Header" class="dec">
+      <a href="http://sdljava.sourceforge.net/" title="sdljava - Java Binding to SDL">
+	sdljava - Java Binding to SDL
+      </a>
+    </div>
+
+    <div id="LSide" class="sidebar">
+    <ul id="Menu">
+      <LI> <a  href="http://sourceforge.net/projects/sdljava"><img src="images/sdljava_logo.gif"  alt="sdljava Logo" border="0"/> </LI>
+      <hr>
+      <LI> <a  href="documentation.html">Documentation</a> </LI>
+      <LI> <a  href="features.html">Features</a></LI>
+      <LI> <a  href="architecture.html">Architecture</a></LI>
+      <LI> <a  href="download_sdljava.html">Download</a></LI>
+      <LI> <a  href="installation.html">Installation</a></LI>
+      <LI> <a  href="mailing_lists.html">Mailing Lists</a> </LI>
+      <LI> <a  href="licence.html">Licence</a> </LI>
+      <LI> <a  href="http://www.sourceforge.net/projects/sdljava">Project page</a> </LI>
+
+      <hr>
+      <LI> <a  href="http://www.libsdl.org"><img src="images/sdl_logo.gif"  alt="SDL Logo" border="0"/></a> </LI>
+      <LI> <a  href="http://www.opengl.org"><img src="images/oglblk.gif"  width="160" alt="SDL Logo" border="0"/></a> </LI>
+      <LI> <a  href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=124821&amp;type=3" width="128" height="37" border="0" alt="SourceForge.net Logo" /> </a></LI>
+    </ul>      
+    </div>
+    
+    <div id="Content">
+      <h2>Dependencies (minimum versions, higher should be fine)</h2>
+      <font size="-1"><I>Please note these dependencies apply to the latest released version.  If you are working from the CVS version please see the INSTALL file in the source tree.</I></font>
+      <h5>Required:</h5>
+      <UL>
+	<LI> <a href="http://java.sun.com/j2se/1.5.0/download.jsp">Java 1.4</a> </LI>
+	<LI> <a href="http://www.libsdl.org">SDL 1.2.7</a> </LI>
+      </UL>
+      <h5>Optional:</h5>
+      <UL>
+	<LI> <a href="http://glew.sourceforge.net">GLEW 1.3.1</a> <br>( OpenGL support)</LI> </LI>
+        <LI> <a href="http://homepages.paradise.net.nz/henryj/code/#FTGL">FTGL 2.1.3</a> <br>( Font rending with OpenGL)</LI> </LI>
+	<LI> <a href="http://www.libsdl.org/projects/SDL_image/">SDL_image 1.2.3</a> </LI>
+	<LI> <a href="http://www.libsdl.org/projects/SDL_mixer/">SDL_mixer 1.2.5</a> </LI>
+	<LI> <a href="http://www.libsdl.org/projects/SDL_ttf/">SDL_ttf 2.0.6</a> </LI>
+	<LI> <a href="http://www.ferzkopp.net/~aschiffler/Software/SDL_gfx-2.0/">SDL_gfx 2.0.13</a>  </LI>
+	<LI> <a href="http://ant.apache.org/">Ant 1.6.2</a> <br>(<I> only if you want to compile java sources</I>)</LI>
+	<LI> <a href="http://www.ruby-lang.org">Ruby 1.8.2</a> <br>(<I> only if you want to re-generate native layer</I>) </LI>
+	<LI> <a href="http://www.swig.org">SWIG 1.3.22</a> <br>(<I> only if you want to re-generate native layer</I>) </LI>
+      </UL>
+	  </P>
+    <h2>Download</h2>
+    <hr>
+    <h4>Release</h4>
+    Please download the release from <a  href="http://sourceforge.net/project/showfiles.php?group_id=124821">here</A>.
+
+    <P>  <I>Note:  If you want to be able to run the image and mixer tests please download the testdata release as well.  Un-archive it in the root of the sdljava installation so that it populates the "testdata" directory.
+
+    <h4>CVS</h4>
+    <P>
+      <h5>Anonymous CVS Access</h5>
+      <P>
+	This project's SourceForge.net CVS repository can be checked
+	out through anonymous (pserver) CVS with the following
+	instruction set. The module you wish to check out must be
+	specified as the modulename. When prompted for a password for
+	anonymous, simply press the Enter key. 
+	<P>
+	  <I>The module name is <B>"sdljava"</B></I>
+	</P>
+	<P>
+	  cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/sdljava login
+	</P>
+	<P>
+	  cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/sdljava co sdljava
+	</P>
+	<P>
+	  Information about accessing this CVS repository may be found
+	  in our document titled, <a href="http://sourceforge.net/docman/display_doc.php?docid=14033&group_id=1">"Basic Introduction to CVS and SourceForge.net (SF.net) Project CVS Services".</a>
+	</P>
+	<P>
+	  Updates from within the module's directory do not need the -d parameter.
+	</P>
+	<P>
+	  NOTE: UNIX file and directory names are case sensitive. The
+	  path to the project CVSROOT must be specified using
+	  lowercase characters (i.e. /cvsroot/sdljava)
+	</P>
+	<P>
+	  <I>Don't forget to download the testdata if you want to run the image or mixer tests.</I>
+	</P>
+  </BODY>
+  </div>
+</HTML>

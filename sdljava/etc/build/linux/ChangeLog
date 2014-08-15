@@ -1,0 +1,7 @@
+2005-02-09  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* Makefile (Repository): native layer generation is disabled by default
+
+2005-01-23  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* Makefile (Repository): added targets for swig mapping

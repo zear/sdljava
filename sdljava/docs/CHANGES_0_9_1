@@ -1,0 +1,78 @@
+* added jniclasscode pragma's to swig interface (.i) files  which call
+  System.loadLibrary for the appropriate lib.  Now there is no need to
+  call System.loadLibrary explictly from code which utilizes sdljava
+
+* added new methods to SDLMixer (SDLMixer version requirement is still
+  1.2.5)
+	public static MixChunk loadWAV(Buffer buf) throws SDLException
+	public static MixChunk loadWAV(byte[] data) throws SDLException
+	public static MixChunk loadWAV(URL url) throws SDLException, IOException, MalformedURLException
+	public static MixChunk loadWAV(InputStream in) throws SDLException, IOException
+
+	public static MixMusic loadMUS(Buffer buf) throws SDLException {
+	public static MixMusic loadMUS(byte[] data) throws SDLException
+	public static MixMusic loadMUS(URL url) throws SDLException, IOException, MalformedURLException
+	public static MixMusic loadMUS(InputStream in) throws SDLException, IOException
+	
+* added new methods to SDLImage
+	public static SDLSurface load(Buffer buf) throws SDLException
+	public static SDLSurface load(byte[] data) throws SDLException
+	public static SDLSurface load(URL url) throws SDLException, IOException, MalformedURLException
+	public static SDLSurface load(InputStream in ) throws SDLException, IOException
+
+* JDK 1.5 enumerations removed.  Any existing code which used these
+  enumerations needs to be slightly modified.  Please see tests for 
+  examples of how to use.
+
+    * CDStatus.java       is no longer a JDK 1.5 enumeration
+    * SDLGrabMode.java    is no longer a JDK 1.5 enumeration
+    * SDLAppState.java    is no longer a JDK 1.5 enumeration
+    * SDLEventAction.java is no longer a JDK 1.5 enumeration
+    * SDLEventState.java  is no longer a JDK 1.5 enumeration
+    * SDLKey.java         is no longer a JDK 1.5 enumeration
+    * SDLEvent.java
+    	method eventState now takes an int for the event type
+    	method getKeyName now takes an int
+    	method getType now returns an int
+	
+* ALL JDK 1.5 dependencies removed.  JDK 1.5 is no longer required!!
+
+* OpenGL 1.1 Support added!!!
+    * new methods on SDLSurface getGL() and glSwapBuffers() to access
+
+* BufferUtil.java changed readInputStream() so that when it created
+  the ByteBuffer to ordering is set to the native byte order.
+
+* SDLSurface added mustLock() method
+
+* BufferUtil.java: integrated patch from Robert Schuster
+  <theBohemian at gmx.net> which fixed the problem of loading byte
+  streams from URLs over the network.  Thanks Robert!
+
+* SDLSurface added ByteBuffer getPixelData() method which returns
+  direct byte buffer for pixel data access!  Removed
+  get/setPixelDataXXXX() methods
+
+* FTGL binding added (http://homepages.paradise.net.nz/henryj/code/#FTGL).  
+  Font support is now available for OpenGL binding.  Check out FTGLTest example code.
+
+* Moved gljava and ftgl build to src/org/gljava/opengl/native directory
+
+* Added ability to disable automatic loading of shared library.
+  Specify -Dsdljava.bootclasspath=true (or any value) to the java vm
+  and no shared  libraries will be loaded.  
+  Thanks to Stéphane Meslin-Weber <steph at tangency.co.uk> for the
+  suggestions.
+
+* added org.gljava.opengl.model package to faciliate dealing with 3D
+  model data.  Also added gljava_export.py blender export script which
+  exports xml format file which can be imported by XMLModelLoader in
+  same pacakge.  (there is much to be done here stil...)
+
+* added DebugGL for debug pipeline support.  Please see source file
+  for documentatin.
+
+* Changed methods in SDLGfx which took short[] to take ShortBuffer
+instances instead.  Note:  these methods are currently not working.
+
+* added version API; SDLMain.getSDLVersion(), SDLMixer.getMixVersion(), SDLTTF.getTTFVersion()

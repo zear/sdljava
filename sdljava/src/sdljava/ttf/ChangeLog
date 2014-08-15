@@ -1,0 +1,12 @@
+2005-09-03
+
+	* SDLTrueTypeFont.java (Repository): remove unused imports
+
+2005-08-23  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLTrueTypeFont.java (Repository): added methods to call sizeText()
+
+2005-02-18  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLTTF.java (Repository): added version API.
+

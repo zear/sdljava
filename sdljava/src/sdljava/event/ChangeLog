@@ -1,0 +1,44 @@
+2006-02-08  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLEvent.java (Repository): add public static int showCursor(int toggle) method.
+
+2005-02-07  Bart LEBOEUF  <bartleboeuf@yahoo.fr>
+	* SDLEventManager.java (Repository): add events manager for SDLEventListener classes.
+
+2005-01-30  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+	* SDLMouseButtonEvent.java (Repository):  changed getButton() to
+	return an int.  MouseButtonState wasn't the correct thing here.
+	Use the SDLEvent.SDL_BUTTON_XXXX finals to check for which button.
+
+2005-01-24  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLEvent.java (Repository): change getType() to be abstract and
+	implemented in all extending classes.
+
+2005-01-23  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLEvent.java (Repository): manually set value of SDL_PRESSED
+	and SDL_RELEASED since mapping layer isn't setting it anymore
+
+2005-01-12  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLKeyboardEvent.java (Repository): getSym() now returns in int value
+
+	* SDLKey.java (Repository): changed to a set of public final defines
+
+	* SDLEvent.java (Repository): 	method eventState now takes an int for the event type
+	method getKeyName now takes an int
+	method getType now returns an int
+
+2004-12-30  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLMouseButtonEvent.java (Repository): changed toString() to
+	also output MouseButtonState object
+
+2005-07-13  Ivan Z. Ganza  <ivan_ganza2yahoo.com>
+
+	* SDLEventManager.java (Repository):  applied fix from Stefan Prelle
+	  to the register method.  Line 108 should have been:
+		if (!SDLEvent.class.isAssignableFrom(eventType)) return false;
+
+

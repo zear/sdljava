@@ -1,0 +1,33 @@
+# Project: gljava
+# Makefile created by Dev-C++ 4.9.9.1
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = ../../../../../src/org/gljava/opengl/native/glew_wrap.o $(RES)
+LINKOBJ  = ../../../../../src/org/gljava/opengl/native/glew_wrap.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -L"C:/Dev-Cpp/lib" -L"D:/work/glew-1.3.1-win32/glew/lib" -L"C:/jdk1.4.1/lib" --no-export-all-symbols --add-stdcall-alias -lglew32 -lglu32 -lopengl32  -fmessage-length=0 
+INCS =  -I"C:/Dev-Cpp/include"  -I"C:/Dev-Cpp/include"  -I"C:/Dev-Cpp/include/GL"  -I"D:/work/glew-1.3.1-win32/glew/include"  -I"C:/jdk1.4.1/include"  -I"C:/jdk1.4.1/include/win32" 
+CXXINCS =  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include"  -I"C:/Dev-Cpp/include"  -I"C:/Dev-Cpp/include/GL"  -I"D:/work/glew-1.3.1-win32/glew/include"  -I"C:/jdk1.4.1/include"  -I"C:/jdk1.4.1/include/win32" 
+BIN  = ../../../../../lib/gljava.dll
+CXXFLAGS = $(CXXINCS) -D__GNUWIN32__ -W -DBUILDING_DLL=1  -DGLEW_STATIC -DWIN32 -DWIN32_MEAN_AND_LEAN -DVC_EXTRALEAN -DGLJAVA_EXPORTS   -ansi -traditional-cpp -fmessage-length=0
+CFLAGS = $(INCS) -D__GNUWIN32__ -DBUILDING_DLL=1  -W -DGLEW_STATIC -DWIN32 -DWIN32_MEAN_AND_LEAN -DVC_EXTRALEAN -DGLJAVA_EXPORTS   -ansi -traditional-cpp -fmessage-length=0
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ../../../../../lib/gljava.dll all-after
+
+
+clean: clean-custom
+	rm -f $(OBJ) $(BIN)
+
+DLLWRAP=dllwrap.exe
+DEFFILE=../../../../../lib/libgljava.def
+STATICLIB=../../../../../lib/libgljava.a
+
+$(BIN): $(LINKOBJ)
+	$(DLLWRAP) --output-def $(DEFFILE) --driver-name c++ --implib $(STATICLIB) $(LINKOBJ) $(LIBS) -o $(BIN)
+
+../../../../../src/org/gljava/opengl/native/glew_wrap.o: ../../../../../src/org/gljava/opengl/native/glew_wrap.c
+	$(CC) -c ../../../../../src/org/gljava/opengl/native/glew_wrap.c -o ../../../../../src/org/gljava/opengl/native/glew_wrap.o $(CFLAGS)

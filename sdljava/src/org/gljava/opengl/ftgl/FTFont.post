@@ -1,0 +1,14 @@
+    // added during post processing of SWIG generated java files
+
+    public BoundingBox getBoundingBox(String string) {
+        float[] llx = {0.0f};
+        float[] lly = {0.0f};
+        float[] llz = {0.0f};
+        float[] urx = {0.0f};
+        float[] ury = {0.0f};
+        float[] urz = {0.0f};
+        
+        bBox(string, llx, lly, llz, urx, ury, urz);
+        
+        return new BoundingBox(llx[0], lly[0], llz[0], urx[0], ury[0], urz[0]);
+    }

@@ -1,0 +1,29 @@
+sdljava.event:
+	SDLEvent
+		- implement SDL_SysWMEvent
+
+		- implement SDL_PeekEvents
+		- implement SDL_PushEvent(1)
+		- implement SDL_UserEvent(2)
+
+		- implement SDL_SetEventFilter
+		- implement SDL_GetKeyState
+		  * 1,2: not sure if it makes sense ot is feasible to implement these
+
+sdljava.mixer:
+		- implement support for callbacks
+
+sdljava.ttf:
+	SDLTrueTypeFont
+		- fix glyphMetrics() method
+		
+sdljava.video:
+	SDLVideo
+		- implement YUV overlay support
+		- implement SDL_XXXXCursor functions from SDL_mouse.h
+
+sdljavax.gfx:
+	- fix methods which take ShortBuffer argument
+
+TESTING --> improve tests in general, add more tests, make sure each
+            method is executed if possible

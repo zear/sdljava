@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+
+<project name="jsdl" default="all">
+
+  <property name="src" location="src"/>
+  <property name="testsrc" location="testsrc"/>
+  <property name="build" location="${basedir}/classes"/>
+
+  <!-- import jars in lib directory -->
+  <path id="classpath">
+    <fileset dir="${basedir}/lib">
+      <include name="**/*.jar"/>
+      <exclude name="**/sdljava.jar"/>
+    </fileset>
+  </path>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <!-- compile source files -->
+  <target name="compile" depends="init">
+    <javac source="1.4" srcdir="${src}" destdir="${build}" classpathref="classpath" debug="true" encoding="ISO-8859-1"/>
+    <javac source="1.4" srcdir="${testsrc}" destdir="${build}" classpathref="classpath" debug="true" encoding="ISO-8859-1"/>
+  </target>
+
+
+  <target name="all" depends="compile">
+  </target>
+
+  <target name="javadoc">
+     <javadoc destdir="${basedir}/docs/api" 
+              author="true" 
+              version="true" 
+              use="true" 
+              windowtitle="sdljava api"
+              private="true"
+     >
+          <tag name="todo" description="todo"/>
+          <link href="http://java.sun.com/j2se/1.4.0/docs/api"/>
+
+          <fileset dir="src" defaultexcludes="yes">
+              <include name="sdljava/**" />
+              <include name="sdljavax/**" />
+              <include name="org/gljava/opengl/**" />
+              <include name="javax/**" />
+              <exclude name="sdljava/native/*"/>
+              <exclude name="org/gljava/opengl/native/*"/>
+              <exclude name="**/*ChangeLog*"/>
+              <exclude name="**/*.rb*"/>
+              <exclude name="**/*.py*"/>
+              <exclude name="**/*.so*"/>
+              <exclude name="**/*.post*"/>
+              <exclude name="**/*.i*"/>
+              <exclude name="**/*.c*"/>
+              <exclude name="**/*.o*"/>
+           </fileset>
+
+     </javadoc>
+  </target>
+
+  <target name="jar" depends="all">
+      <jar destfile="${basedir}/lib/sdljava.jar" basedir="${build}"/>
+  </target>
+
+  <target name="clean">
+    <delete dir="${build}"/>
+  </target>
+
+</project>

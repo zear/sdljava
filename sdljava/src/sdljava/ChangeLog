@@ -1,0 +1,5 @@
+2005-02-14  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLMain.java (Repository): added SDLVersion and version() method
+	on SDLMain
+

@@ -1,0 +1,214 @@
+INSTALL
+==================
+NOTE:  PLEASE MAKE SURE you already have the dependencies installed on
+your system.
+
+     - Java 1.4
+     - SDL 1.2.7
+  
+     - GLEW 1.3.1 (http://glew.sourceforge.net) for OpenGL Support (optional)
+     - FTGL 2.1.3 (http://homepages.paradise.net.nz/henryj/code/#FTGL) for FreeType font Support w/OpenGL (optional)
+
+     - SDL_image 1.2.3 (optional)
+     - SDL_mixer 1.2.5 (optional)
+     - SDL_ttf 2.0.6   (optional)
+     - SDL_gfx 2.0.13  (optional)
+
+     - Ant 1.6.2       (optional, only if you need want to compile 
+			java sources)
+     - SWIG 1.3.22     (optional, only if you want to re-generate
+		       native layer)
+     - Ruby 1.8.2      (optional, only if you want to re-generate
+		       SOME of native layer)
+		     
+
+USING INCLUDED BINARIES (BINARY RELEASE)
+==================
+	The required libraries will already be present in the lib
+directory and you may simply begin to use then.  Skip to the usage
+section below.
+
+
+NOTE ABOUT GENERATING NATIVE LAYER
+==================
+Please note that generation of native layer is disabled by default
+(remarked out in Makefiles).  If you wish to generate the native layer
+or work on this part please enable those lines in the package you are
+working with.
+
+
+COMPILE FROM SOURCES (SOURCE RELEASE/CVS)
+==================
+On any platform compilation consists of two steps.
+   1) compile the native interface layer
+   2) compile the java source files
+
+UNIX:
+	Compile Native Layer
+	--------------------------------------------------
+
+	To compile the native interface layer copy the Makefile from
+	etc/build/linux
+
+		$ cp etc/build/linux/Makefile src/sdljava/native
+
+	Type make and see if the build works.  If not you most likely
+	will need to add an additional include path based on the error
+	message received.
+
+	Note:  if you wish to build libsdljava_gfx invoke 
+	"make libsdljava_gfx.so" as well.
+
+	Once this completes with success you should have the shared
+	libraries built depending on what you choose to build.
+		  libsdljava.so
+		  libsdljava_image.so
+		  libsdljava_mixer.so
+                  libsdljava_ttf.so
+		  libsdljava_gfx.so
+
+	The build should also have copied the libraries to the
+	appropriate location in $(SDLJAVA)/lib.
+
+	Follow a similar process to build gljava and ftgljava.
+
+	gljava:
+		$ cp etc/build/gljava/linux/Makefile src/org/gljava/opengl/native
+                $ cd src/org/gljava/opengl/native && make
+
+	ftgljava:
+		$ cp etc/build/gljava/linux/ftgl/Makefile src/org/gljava/opengl/native/ftgl
+		$ cd src/org/gljava/opengl/native/ftgl && make
+
+	This is it for the native layer!
+
+	Compile Java Layer
+	--------------------------------------------------
+	To compile the java layer invoke ant from the root like so:
+	   $ ant jar
+	
+	This should result in the java source files being compiled and
+	archived into the sdljava jarfile (sdljava.jar).  The jarfile
+	will be played in $(SDLJAVA)/lib.
+
+WINDOWS:
+	Compile Native Layer
+	--------------------------------------------------
+
+	Makefiles have been provides for building with Dev-C++,
+	VisualC 6 (Makefiles and project files) and mingw.
+
+	MinGW
+	----------------------------------------------
+
+	There is a makefile for MinGW located in
+		\etc\build\windows\mingw
+
+	To build under MinGW download first following the instructions
+	posted here:
+	       www.mingw.org
+	       http://www.mingw.org/MinGWiki/index.php/GettingStarted?PHPSESSID=f79415c5bdbd257b2235286d0d17d48b
+
+	First compile the required SDL libraries under MinGW then you
+	will be able to run the provided makefile to build the sdljava
+	dll files.
+
+	Hint:  When you configure each package pass an appropriate
+	value such as: 
+	      ./configure --prefix=/c/dev/msys/1.0 (on my system at
+						    least)
+        This will make sure all the packages go to the appropriate
+	place.
+
+	(NOTE:  MinGW Makefiles have not yet been created for gljava
+	 or ftgljava)
+
+	VisualC
+	----------------------------------------------
+	There is a Makefile provided for building under a Visual C
+	enviornment.  The Makefile may be found in
+		\etc\build\windows\VisualC
+
+	Makefiles also exist for gljava and ftgljava.
+
+	You will need to edit the makefile and do the following:
+
+		** before you begin this process you need to have
+		** already the SDL .dll and .lib files.  You can
+		** download them from the SDL site itself or compile
+		** them.  Each library has a -devel-XXX-VC6.zip
+		** package which contains the .lib files.  Place all
+		** the .lib files in the src/sdljava/native directory
+		** so they can be resolved by the linker.
+
+		1.  Set the appropriate value for TOOLS to point to
+		    your VisualC install.
+
+		2.  Set the appropriate value for JAVA_INCLUDE to
+		    point to your java install
+
+		3.  Copy the SDL header (.h) files into the
+		    src/sdljava/native directory or set the include
+		    path to point to them where they are on your
+		    filesystem
+
+		4.  Copy the SDL header of each API such as mixer,
+		    ttf, etc... which you plan to use into the
+		    src/sdljava/native directory or set the include
+		    path to point to them where they are on your
+		    filesystem.
+
+		4.  Now you can build each module by running nmake
+		    (make sure you run vcvars32.bat first)
+		    Each target can be built with the following
+		    command:
+			nmake			- sdljava.dll
+			nmake sdljava_image	- sdljava_image.dll
+			nmake sdljava_mixer	- sdljava_mixer.dll
+			nmake sdljava_ttf	- sdljava_ttf.dll
+			nmake sdljava_gfx	- sdljava_gfx.dll
+
+	Additional Makefiles have also been provided in 
+		\etc\build\gljava for the gljava layer
+
+	Follow the same process to build gljava.dll or ftgljava.dll or
+	use the project files.
+	
+
+	Compile Java Layer
+	--------------------------------------------------
+	To compile the java layer invoke ant from the root like so:
+	   $ ant jar
+	
+	This should result in the java source files being compiled and
+	archived into the sdljava jarfile (sdljava.jar).  The jarfile
+	will be played in $(SDLJAVA)/lib.
+
+
+USAGE
+==================
+	After everything is compiled and nicely packaged up you can
+write programs which utilize sdljava by doing two things:
+
+      1)  include the native libraries (.so or .dll) files in the
+          java.library.path with the appropriate switch to the java vm:
+		    java -Djava.library.path=$(SDLJAVA)/lib
+
+      2)  include the classes from sdljava in the classpath by either
+          including the jarfile on the classpath or the classes
+	  directory itself:
+		    java -cp $(SDLJAVA)/lib/sdljava.jar
+		      OR
+		    java -cp $(SDLJAVA)/lib/classes
+
+For example you can run the test for the video module like so:
+	    java -Djava.library.path=./lib -cp ./classes/ sdljava.video.SDLVideoTest
+	    
+
+
+NOTES
+==================
+Linux:
+	When configuring SDL Mixer the following switches needed to be passed to disable timidity
+	SDL_mixer:
+		./configure --disable-music-timidity-midi --disable-music-timidity-midi --disable-music-midi

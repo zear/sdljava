@@ -1,0 +1,13 @@
+Version 0.4.0
+=============
+* Added a fix to make both versions of drawImage in
+  OpenGLGraphics and SDLGraphics visible and usable.
+* Optimized fillRect in SDLGraphics slightly when using alpha
+  blending. However, SDLGraphics still needs a lot of optimizing
+  in other parts.
+* Updated ImageFont with support for font images with several rows
+  of glyphs.
+* Added modal focus to widgets. Widgets can now request modal focus
+  stealing all input from other widgets. Can be useful when making
+  dialog windows.
+* Many small fixes.

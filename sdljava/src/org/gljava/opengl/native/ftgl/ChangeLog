@@ -1,0 +1,6 @@
+2005-01-30  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* FTGL.i (Repository): added ability to disable loading of
+	shared library via -Dsdljava.bootclasspath value  or
+	-Dgljava.bootclasspath (any value prevents loading of shared libs)
+

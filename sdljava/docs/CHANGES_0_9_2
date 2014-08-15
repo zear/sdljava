@@ -1,0 +1,72 @@
+2006-09-24:
+	* adjusted SDLSurface.freeSurface() due to memory leak located
+	by Patric Rufflarp
+
+2006-03-13:
+	* added code to implement the following YUV methods to SDLVideo class:
+	    SDLOverlay createYUVOverlay(int width, int height, int format, SDLSurface display) throws SDLException 
+	    int lockYUVOVerlay(SDLOverlay overlay) {
+            int displayYUVOverlay(SDLOverlay overlay, SDLRect rect)
+            void freeYUVOverlay(SDLOverlay overlay)	
+
+2005-09-25:
+	* removed the following methods from gljava because they do not resolve on windows:
+		gluBuild1DMipmapLevels 
+		gluBuild2DMipmapLevels
+		gluBuild3DMipmapLevels
+		gluBuild3DMipmaps
+		gluCheckExtension
+		gluUnProject4
+
+2005-09-16:
+	* add native array methods to gljava code.  One exists for each 
+	method which takes an NIO buffer (except for void *)
+
+2005-09-14:
+	* added method GlewImpl.init() -- use this to initialize library if required.
+
+2005-09-03:
+	* removed call to SWIG_glew_init() in static initializer for GLEW (gljava)
+
+2005-06-08:
+	* update guichan to latest 0.4.0 via code from Rainer.  Thanks Rainer!
+
+2005-05-26:
+	* integrated guichan  (http://guichan.sourceforge.net/) port by 
+	  Rainer Koschnick.  Thanks Rainer!
+
+2005-02-23:
+	* imported FREE javax.math package from
+	      http://www.objectclub.jp/download/vecmath_e.  
+	  Thanks to Kenji Hiranabe <hiranabe at esm.co.jp> for
+	  providing this!
+
+2005-03-01:
+	* fixed common.i typemap, it was using (void * buf) but should
+	  have been (void *).  This resulted in the typemap not being
+          generated unless the prototype was matching (void * buf)
+
+2005-03-13:
+	* integrated patch from Chris Dennett (Dessimat0r at ntlworld.com) 
+	  which added SDLPoint and enhanced SDLRect
+
+2005-03-23:
+	* added GLU support
+
+2005-03-28:
+	* integrated patch from Chris Dennett (Dessimat0r at ntlworld.com) 
+	  which enhanced SDLPoint, SDLRect and SDLSurface.
+
+2005-05-26:
+	* guichan port checked into CVS (Thanks Rainer!).
+
+2005-07-08:
+	* added setPixelDataXXXX() and getPixelDataXXXX() methods to
+	  SDLSurface
+
+2005-07-13:
+	* SDLEventManager.java:  applied fix from Stefan Prelle
+          to the register method.  Line 108 should have been:
+                if (!SDLEvent.class.isAssignableFrom(eventType)) return false;
+
+

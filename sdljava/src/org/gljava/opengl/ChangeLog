@@ -1,0 +1,16 @@
+2005-09-16  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* DebugGL.java (Repository): update due to native array changes.
+
+	* GL.java (Repository): add native array methods.  One exists for
+	each method which takes an NIO buffer (except for void *)
+	
+2005-02-02  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* TextureFactory.java (Repository): refactor and add
+	loadSubTexture2D() method
+
+2005-01-29  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* GL.java (Repository): added methods: gluLookAt, gluPerspective,gluOrtho2D
+

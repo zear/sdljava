@@ -1,0 +1,8 @@
+2005-01-06  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLImage.java (Repository): added new methods to SDLImage
+		public static SDLSurface load(Buffer buf) throws SDLException
+		public static SDLSurface load(byte[] data) throws SDLException
+		public static SDLSurface load(URL url) throws SDLException, IOException, MalformedURLException
+		public static SDLSurface load(InputStream in ) throws SDLException, IOException
+

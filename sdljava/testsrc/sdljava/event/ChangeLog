@@ -1,0 +1,4 @@
+2004-12-30  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLEventTest.java (Repository): changed to only init video
+

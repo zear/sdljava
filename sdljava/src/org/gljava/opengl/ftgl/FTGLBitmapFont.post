@@ -1,0 +1,6 @@
+public FTGLBitmapFont(String fontFilePath) throws FTGLException {
+    this(SWIG_FTGLJNI.new_FTGLBitmapFont(fontFilePath), true);
+    if (error() != 0) {
+        throw new FTGLException("error, code=" + error());
+    }
+}

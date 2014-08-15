@@ -1,0 +1,13 @@
+2005-09-16  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* GlewImpl.java (Repository): add native array methods.  One exists for
+	each method which takes an NIO buffer (except for void *)
+
+2005-09-12  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+	* GlewImpl.java (Repository): add init() method which calls SWIG_glew_init()
+
+2005-01-29  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* GlewImpl.java (Repository): implement gluLookAt, gluPerspective
+	and gluOrtho2D
+

@@ -1,0 +1,139 @@
+2006-09-13  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+	* SDLVideo.i (Repository): apply fix from Guillaume Legris.
+	Thanks!
+
+2005-12-12  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLVideo_wrap.c (Repository): apply fix to
+	SWIG_SDL_BlitSurface_FAST (from mjs@irclive.org)
+
+2005-08-23  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLTTF.i (Repository):  added methods to expose SizeText call
+
+
+2005-07-19  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLVideo.i (Repository): changed set/getPixelData32 to use
+	type int instead of long
+
+2005-03-21  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLVideo.i (Repository): apply fix from Rainer Koschnick arkay
+	at gmx.net to SWIG_SDL_BlitSurface_FAST.  x and y can be negative.
+
+2005-03-01  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLVideo_wrap.c (Repository): blitQueue methods changed since
+	the typemap is no properly generating the function.
+
+	* common.i (Repository): changed NIO Buffer typemap to be (void *)
+	instead of (void *buf)
+
+	* SDLGFX.i (Repository): removed debugging since NIO Buffer bug is
+	fixed.
+
+2005-02-18  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLTTF.i (Repository): added version API.
+
+	* SDLMixer.i (Repository): added version API.
+
+	* SDLGFX.i (Repository): change all methods which took a short[]
+	to take a ShortBuffer instead.
+
+2005-02-17  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLGFX.i (Repository): start changing methods to use NIO buffers
+	instead of (slow) java arrays.
+
+2005-02-11  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLVideo.i (Repository): removed SDL_SetGammaRamp() as it was
+	not needed and was causing DevC++ compile problem.
+
+2005-01-30  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLTTF.i (Repository): added ability to disable loading of
+	shared library via -Dsdljava.bootclasspath value (any value
+	prevents loading of shared libs)
+
+	* SDLMixer.i (Repository): added ability to disable loading of
+	shared library via -Dsdljava.bootclasspath value (any value
+	prevents loading of shared libs)
+
+	* SDLMain.i (Repository): added ability to disable loading of
+	shared library via -Dsdljava.bootclasspath value (any value
+	prevents loading of shared libs)
+
+	* SDLImage.i (Repository): added ability to disable loading of
+	shared library via -Dsdljava.bootclasspath value (any value
+	prevents loading of shared libs)
+
+	* SDLGFX.i (Repository): added ability to disable loading of
+	shared library via -Dsdljava.bootclasspath value (any value
+	prevents loading of shared libs)
+
+2005-01-29  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* glew.i (Repository): added gluLookAt, gluPerspective and
+	gluOrtho2D.  Set GlewJNI to be public.
+
+2005-01-28  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLTTF.i (Repository): remove include of enums.swg
+
+	* SDLJoystick.i (Repository): remove include of enums.swg
+
+2005-01-25  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLVideo.i (Repository): applied patch from Bart Lebeouf
+	bartleboeuf@yahoo.fr to SWIG_getPixelDirectByteBuffer() function.
+
+2005-01-23  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLVideo.i (Repository): pull in SDL_mouse.h header file and fix
+	up prototype for SDL_CreateCursor method
+
+	* SDLCdrom.i (Repository): apply patch to SWIG_msfToFrames().
+	Thanks to Bart Lebeouf bartleboeuf@yahoo.fr for the patch.
+
+	* SDLVideo.i (Repository): add SWIG_getPixelDirectByteBuffer()
+	function.  Not working perfectly yet.
+
+2005-01-22  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLVideo.i (Repository): added SWIG_SDL_MUSTLOCK
+
+2005-01-12  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLEvent.i (Repository): enum SDLEventType renamed to SDLEventTypeValues
+
+2005-01-11  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLEvent.i (Repository): Removed include of "enums.swg" so that
+	enums not do NOT generate JDK 1.5 type enumerations.
+
+	* SDLVideo.i (Repository): Removed include of "enums.swg" so that
+	enums not do NOT generate JDK 1.5 type enumerations.
+
+	* SDLCdrom.i (Repository): Removed include of "enums.swg" so that
+	enums not do NOT generate JDK 1.5 type enumerations.
+
+2005-01-06  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLImage.i (Repository): Added SWIG_IMG_Load_Buffer(void* buf,
+	int size) and changed to pull in common.i for typedefs
+
+	* SDLMixer.i (Repository): Added SWIG_Mix_LoadMUS_Buffer.  Also
+	previously defined SWIG_Mix_LoadWAV_Buffer and also defined type
+	map for input void * from a direct buffer.
+
+2005-01-03  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLGFX.i, SDLImage.i, SDLMixer.i, SDLTTF.i added jniclasscode
+	pragma which calls System.loadLibrary for the appropriate lib.
+
+2004-12-30  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* *.i made sure all interface files have %javaconst(1); setting

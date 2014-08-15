@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+  <HEAD>
+    <meta name="description" content="Home of sdljava -- java binding to SDL"/>
+    <meta name="keywords" contents="sdl,java,software,development,game,programming,C++,C,C/C++,jni,sun,opengl,3D,rendering,design,swig,native,libsdl,glew,ftgl,fast,binding"/>
+    <TITLE>sdljava Features (Java Binding to SDL)(11-Feb-2005)</TITLE>
+    <!-- Created by: Ivan Z. Ganza, 23-Dec-2004 -->
+    <!-- Changed by: Ivan Z. Ganza, 11-Feb-2005 -->
+    
+    <link rel="stylesheet" type="text/css" href="sdljava.css">
+  </HEAD>
+
+  <BODY>
+    <span style="visibility: hidden;">.</span>
+
+    <div id="Header" class="dec">
+      <a href="http://sdljava.sourceforge.net/" title="sdljava - Java Binding to SDL">
+	sdljava - Java Binding to SDL
+      </a>
+    </div>
+
+    <div id="LSide" class="sidebar">
+    <ul id="Menu">
+      <LI> <a  href="http://sourceforge.net/projects/sdljava"><img src="images/sdljava_logo.gif"  alt="sdljava Logo" border="0"/> </LI>
+      <hr>
+      <LI> <a  href="documentation.html">Documentation</a> </LI>
+      <LI> <a  href="features.html">Features</a></LI>
+      <LI> <a  href="architecture.html">Architecture</a></LI>
+      <LI> <a  href="download_sdljava.html">Download</a></LI>
+      <LI> <a  href="installation.html">Installation</a></LI>
+      <LI> <a  href="mailing_lists.html">Mailing Lists</a> </LI>
+      <LI> <a  href="licence.html">Licence</a> </LI>
+      <LI> <a  href="http://www.sourceforge.net/projects/sdljava">Project page</a> </LI>
+
+      <hr>
+      <LI> <a  href="http://www.libsdl.org"><img src="images/sdl_logo.gif"  alt="SDL Logo" border="0"/></a> </LI>
+      <LI> <a  href="http://www.opengl.org"><img src="images/oglblk.gif"  width="160" alt="SDL Logo" border="0"/></a> </LI>
+      <LI> <a  href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=124821&amp;type=3" width="128" height="37" border="0" alt="SourceForge.net Logo" /> </a></LI>
+    </ul>      
+    </div>
+
+    <div id="Content">
+      <h2>Features</h2>
+      <hr>
+      sdljava provides a clean and simple binding to the SDL API.  A binding to OpenGL(via <a href="http://glew.sourceforge.net">GLEW</a>) and a binding to <a href="http://homepages.paradise.net.nz/henryj/code/#FTGL">FTGL</a> is also provided.  The following API have been bound:
+      <h4>Features </h4>
+      <UL>
+	<LI> OpenGL Binding<BR>
+	&nbsp;&nbsp;All OpenGL functions up to version 1.1 are supported.  A few methods from GLU are also provided.  	<I>Note:  Support for up to OpenGL 2.0 as well as ALL OpenGL extensions, including all GLU functions, will be provided in future releases.</I>
+	<br><br>
+	Supports the "composable pipeline" paradigm introduced by the
+	Magician Java binding for OpenGL. The DebugGL pipeline calls
+	glGetError after each OpenGL call, reporting any errors
+	found. It can greatly speed up development time because of its
+	fine-grained error checking as opposed to the manual error
+	checking usually required in OpenGL programs written in C. The
+	TraceGL prints logging information upon each OpenGL call and
+	is helpful when an application crash makes it difficult to see
+	where the error occurred.
+	</LI><br>
+	<LI> FTGL Binding <BR>
+	  &nbsp;&nbsp;Provides a full binding to FTGL allowing applications to render many different types of fonts quickly and easily within their OpenGL applications.
+	</LI> <br>
+	<LI> Full SDL Binding </LI>
+
+	<h4>Supported SDL API</h4>
+	<UL>
+	<LI> Core SDL<BR>
+	  &nbsp;&nbsp;All functions from the core SDL lib are supported.  This includes the SDL main, audio, cdrom, event, joystick, timer and video functions.
+	</LI>
+	<LI> <a href="http://www.libsdl.org/projects/SDL_image/">SDL_image </a><BR>
+	  &nbsp;&nbsp;The SDL Image Libary is fully supported.  Note however that loading images from java is quite easy and there are many core and support libraries available to load the various image formats.
+	</LI>
+	<LI> <a href="http://www.libsdl.org/projects/SDL_mixer/">SDL_mixer</a> <BR>
+	  &nbsp;&nbsp;Full support for the SDL Mixer Library is provided.  (<I>Note: callbacks have not yet been implemented</I>)
+	</LI>
+	<LI> <a href="http://www.libsdl.org/projects/SDL_ttf/">SDL_ttf </a> <BR>
+	  &nbsp;&nbsp;Full support for SDL TTF is provided.
+	</LI>
+	<LI> <a href="http://www.ferzkopp.net/~aschiffler/Software/SDL_gfx-2.0/">SDL_gfx</a><BR>
+	  &nbsp;&nbsp;Drawing primitives are currently well supported within SDL GFX.  The filter algorithms still need to be bound.
+	</LI>
+      </UL>
+      </UL>
+      <h4>Unsupported API</h4>
+      The following can be supported by java's native API and therefore are not implemented.
+      <UL>
+	<LI> SDL_thread
+	</LI>
+
+	<LI> SDL_net
+	</LI>
+      </UL>
+    </div>
+  </BODY>
+</HTML>

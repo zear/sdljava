@@ -1,0 +1,9 @@
+2006-09-24 Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+	* SDL_Surface.java (Repository): adjusted delete() method to
+	correct memory leak.
+	* SWIG_SDLImage (Repository): changed creation of SDL_Surfaces to
+	set cMemoryOwn to true
+	* SWIG_SDLTTF (Repository): changed creation of SDL_Surfaces to
+	set cMemoryOwn to true
+	* SWIG_SDLGfx (Repository): changed creation of SDL_Surfaces to
+	set cMemoryOwn to true

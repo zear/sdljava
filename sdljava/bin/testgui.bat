@@ -1,0 +1,1 @@
+runtest sdljavax.gui.GUITest %1

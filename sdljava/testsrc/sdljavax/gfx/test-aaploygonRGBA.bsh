@@ -1,0 +1,31 @@
+import sdljava.*;
+import sdljava.video.*;
+import sdljavax.gfx.*;
+import sdljava.util.BufferUtil;
+
+try {
+    SDLMain.init(SDLMain.SDL_INIT_VIDEO);
+
+    framebuffer = SDLVideo.setVideoMode(800, 600, 0, 0);
+
+    short [] sx = { 10, 20, 5  };
+    short [] sy = { 10, 25, 25 };
+
+    for(int i = 0; i < 100; i++) {
+
+	SDLGfx.aapolygonRGBA(framebuffer, BufferUtil.createShortBuffer(sx), BufferUtil.createShortBuffer(sy), (short)255, (short)255, (short)255, (short)255);
+
+	framebuffer.flip();
+    }
+
+    Thread.currentThread().sleep(5000);
+}
+catch(Exception e) {
+    e.printStackTrace();
+}
+finally {
+    SDLMain.quit();
+}
+
+
+

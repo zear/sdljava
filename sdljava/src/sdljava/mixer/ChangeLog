@@ -1,0 +1,28 @@
+2005-02-18  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLMixer.java (Repository): added version API.
+
+2005-02-03  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLMixer.java (Repository): re-enabled loadMUS(Buffer),
+	loadMUS(byte[]), loadMUS(URL) and loadMUS(InputStream).  They work
+	by loading the data to a temporary file then loading the file via
+	the normal loadMUS(String path) method.
+
+2005-01-25  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLMixer.java (Repository): downgrad to mixer 1.2.5 for now.
+	New loadMUS() methods removed.
+
+2005-01-06  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLMixer.java (Repository): added new methods to SDLMixer
+		public static MixChunk loadWAV(Buffer buf) throws SDLException
+		public static MixChunk loadWAV(byte[] data) throws SDLException
+		public static MixChunk loadWAV(URL url) throws SDLException, IOException, MalformedURLException
+		public static MixChunk loadWAV(InputStream in) throws SDLException, IOException
+
+		public static MixMusic loadMUS(Buffer buf) throws SDLException {
+		public static MixMusic loadMUS(byte[] data) throws SDLException
+		public static MixMusic loadMUS(URL url) throws SDLException, IOException, MalformedURLException
+		public static MixMusic loadMUS(InputStream in) throws SDLException, IOException

@@ -1,0 +1,1 @@
+runtest sdljava.image.SDLImageTest

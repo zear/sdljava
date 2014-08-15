@@ -1,0 +1,58 @@
+2006-09-24 Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+	* SDLSurface.java (Repository): adjusted freeSurface() method to
+	correct memory leak.
+
+2005-09-12  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+	* SDLSurface.java (Repository):  changed setVideoMode(...) to call SWIG_init_glew() if the surface has an OpenGL context
+
+2005-07-19  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLSurface.java (Repository): changed set/getPixelData32 to use
+	type int instead of long
+
+2005-03-28  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+	* SDLPoint.java (Repository): 
+	* SDLRect.java (Repository): 
+	* SDLSurface.java (Repository): integrate patch from Chris
+	Dennett <Dessimat0r@ntlworld.com>.  Thanks Chris.
+
+2005-03-13  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLRect.java (Repository): integrate patch from Chris
+	Dennett <Dessimat0r@ntlworld.com>.  Thanks Chris.
+
+2005-02-22  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLVideoMode.java (Repository): integrate patch from Chris
+	Dennett <Dessimat0r@ntlworld.com>.  Thanks Chris.
+
+	* SDLVideo.java (Repository):  integrate patch from Chris
+	Dennett <Dessimat0r@ntlworld.com>. Thanks Chris.
+
+2005-01-25  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLSurface.java (Repository): apply fix from Flavio
+	Chierichetti to mapRGBA method.
+
+	removed setPixelDataXXXX and getPixelDataXXXX methods.  They are
+	now repalced by getPixelData() method.
+
+2005-01-24  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLSurface.java (Repository): set pixelData to null when
+	freeSurface() is called.
+
+	* SDLVideo.java (Repository): applied patch from Flavio
+	Chierichetti to mapRGBA method.
+
+2005-01-23  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLSurface.java (Repository): added ByteBuffer getPixelData() method
+
+2005-01-22  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLSurface.java (Repository): added mustLock() method
+
+2005-01-21  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* SDLSurface.java (Repository): added getGL() and glSwapBuffers() methods

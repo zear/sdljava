@@ -1,0 +1,8 @@
+2005-02-21  Bart LEBOEUF   <bartleboeuf@yahoo.fr>
+
+	* SDLCdTrack.java (Repository): add isDataTrack and isAudioTrack methods.
+
+2005-01-11  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* CDstatus.java (Repository): This class is no longer a jdk 1.5 enumeration.
+

@@ -1,0 +1,42 @@
+2005-09-25  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* glu.i (Repository): removed the following functions because they
+	do not resolve on windows and break the build.  Should investigate
+	how to offer these on where they are available (as in linux...):
+		gluBuild1DMipmapLevels 
+		gluBuild2DMipmapLevels
+		gluBuild3DMipmapLevels
+		gluBuild3DMipmaps
+		gluCheckExtension
+		gluUnProject4
+
+
+2005-09-16  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* opengl-1_1_arrays.i (Repository): okay really do use java_arrays.i
+
+	* opengl-1_1_arrays.i (Repository): don't use swig java_arrays.i
+	library.  Let swig use its default.
+
+2005-09-03  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* glew.i (Repository): do not call SWIG_glew_init.  Client must
+	now do this at appropriate time.
+
+2005-02-11  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* glew.i (Repository): removed extern from function prototypes as
+	it wasn't needed and was messing up VC++.
+
+2005-02-10  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* glew.i (Repository): removed include of GL.h.  No need for it
+	and it can confuse some compiliers due to symbol redefinition.
+
+2005-01-30  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* glew.i (Repository): added ability to disable loading of
+	shared library via -Dsdljava.bootclasspath value  or
+	-Dgljava.bootclasspath (any value prevents loading of shared libs)
+	
+

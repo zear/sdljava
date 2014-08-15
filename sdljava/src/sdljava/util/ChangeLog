@@ -1,0 +1,37 @@
+2005-04-18  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* BufferUtil.java (Repository): apply patch from from Robert
+	Schuster <theBohemian@gmx.net>
+	
+	The big buffer holding all the data of the smaller ones was not
+	correctly set into the state where the data could be read afterwards.
+
+	This caused a buffer overflow. Well, just flipping the buffer state
+	fixes this.
+
+	Along with this small fix I changed the minimum buffer size to 8192 (was
+	1024) which will cause the creation of fewer intermediate buffer for big
+	files.
+
+2005-03-13  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* BufferUtil.java (Repository): revent change which called
+	ByteBufferPool to get any buffer.
+
+2005-02-14  Bart LEBOEUF <bartleboeuf@yahoo.fr>
+	* BufferUtil.java (Repository): add Create direct native type buffers methods
+
+2005-01-29  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* BufferUtil.java (Repository): add createFloatBuffer() method
+
+2005-01-22  Ivan Z. Ganza  <ivan_ganza@yahoo.com>
+
+	* BufferUtil.java (Repository): changed readInputStream() so that
+	when it created the ByteBuffer to ordering is set to the native
+	byte order.
+	
+	* BufferUtil.java (Repository): integrated patch from Robert
+	Schuster <theBohemian@gmx.net> which fixed the problem of loading
+	byte streams from URLs over the network.  Thanks Robert!
+

@@ -1,0 +1,1 @@
+runtest sdljava.testsuite.testsprite
