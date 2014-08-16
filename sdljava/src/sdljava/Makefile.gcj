@@ -1,0 +1,102 @@
+VERSION_MAJOR = 0
+VERSION_MINOR = 1
+
+LIBNAME = libjsdl.so
+SONAME = $(LIBNAME).$(VERSION_MAJOR)
+LIBJSDL = $(SONAME).$(VERSION_MINOR)
+
+JC := $(CROSS_COMPILE)gcj
+OBJCOPY := $(CROSS_COMPILE)objcopy
+
+CPPFLAGS := -I..
+JFLAGS := -O3 -fPIC -fjni
+LDFLAGS :=
+
+OBJS_MAIN = SDLException.o SDLMain.o SDLTimer.o SDLVersion.o
+OBJS_AUDIO = audio/SDLAudio.o audio/SDLAudioSpec.o
+OBJS_CDROM = cdrom/CDstatus.o cdrom/FrameInfo.o \
+			 cdrom/SDLCdrom.o cdrom/SDLCdTrack.o
+OBJS_EVENT = event/DummyEvent.o event/MouseButtonState.o event/MouseState.o \
+			 event/SDLActiveEvent.o event/SDLAppState.o event/SDLEvent.o \
+			 event/SDLEventListener.o event/SDLEventManager.o \
+			 event/SDLEventState.o event/SDLEventType.o event/SDLExposeEvent.o \
+			 event/SDLJoyAxisEvent.o event/SDLJoyBallEvent.o \
+			 event/SDLJoyButtonEvent.o event/SDLJoyHatEvent.o \
+			 event/SDLKeyboardEvent.o event/SDLKey.o event/SDLMod.o \
+			 event/SDLMouseButtonEvent.o event/SDLMouseMotionEvent.o \
+			 event/SDLQuitEvent.o event/SDLResizeEvent.o \
+			 event/SDLSysWMEvent.o event/SDLUserEvent.o
+OBJS_IMAGE = image/SDLImage.o
+OBJS_JOYSTICK = joystick/SDLJoystick.o joystick/HatState.o
+OBJS_MIXER = mixer/MixChunk.o mixer/MixerSpec.o \
+			 mixer/MixMusic.o mixer/SDLMixer.o
+OBJS_TTF = ttf/GlyphMetrics.o ttf/SDLTrueTypeFont.o ttf/SDLTTF.o ttf/TextSize.o
+OBJS_UTIL = util/BufferUtil.o util/ByteBufferPool.o util/Scheduler.o \
+			util/Task.o util/TaskPerformer.o
+OBJS_VIDEO = video/BlitQueue.o video/GammaTable.o video/SDLColor.o \
+			 video/SDLGrabMode.o video/SDLOverlay.o video/SDLPalette.o \
+			 video/SDLPixelFormat.o video/SDLPoint.o video/SDLRect.o \
+			 video/SDLSurface.o video/SDLVideoInfo.o video/SDLVideo.o \
+			 video/SDLVideoMode.o
+OBJS_SWIG = x/swig/CDstatusValues.o x/swig/Mix_Chunk.o x/swig/Mix_Fading.o \
+			x/swig/Mix_MusicType.o x/swig/SDL_ActiveEvent.o \
+			x/swig/SDLAppStateValues.o x/swig/SDL_AudioSpec.o x/swig/SDL_CD.o \
+			x/swig/SDL_CDtrack.o x/swig/SDL_Color.o x/swig/SDL_DUMMY_ENUM.o \
+			x/swig/SDL_Event.o x/swig/SDLEventStateValues.o \
+			x/swig/SDLEventTypeValues.o x/swig/SDL_ExposeEvent.o \
+			x/swig/SDL_GLattr.o x/swig/SDL_GrabModeValues.o \
+			x/swig/SDL_JoyAxisEvent.o x/swig/SDL_JoyBallEvent.o \
+			x/swig/SDL_JoyButtonEvent.o x/swig/SDL_JoyHatEvent.o \
+			x/swig/SDL_KeyboardEvent.o x/swig/SDL_keysym.o \
+			x/swig/SDLKeyValues.o x/swig/SDLModValues.o \
+			x/swig/SDL_MouseButtonEvent.o x/swig/SDL_MouseMotionEvent.o \
+			x/swig/SDL_Overlay.o x/swig/SDL_Palette.o x/swig/SDL_PixelFormat.o \
+			x/swig/SDLPressedState.o x/swig/SDL_QuitEvent.o x/swig/SDL_Rect.o \
+			x/swig/SDL_ResizeEvent.o x/swig/SDL_Surface.o \
+			x/swig/SDL_SysWMEvent.o x/swig/SDL_version.o \
+			x/swig/SDL_VideoInfo.o x/swig/SWIG_SDLAudioConstants.o \
+			x/swig/SWIG_SDLAudio.o x/swig/SWIG_SDLAudioJNI.o \
+			x/swig/SWIG_SDLCdromConstants.o x/swig/SWIG_SDLCdrom.o \
+			x/swig/SWIG_SDLCdromJNI.o x/swig/SWIG_SDLEventConstants.o \
+			x/swig/SWIG_SDLEvent.o x/swig/SWIG_SDLEventJNI.o \
+			x/swig/SWIG_SDLGfx.o x/swig/SWIG_SDLGfxJNI.o \
+			x/swig/SWIG_SDLImage.o x/swig/SWIG_SDLImageJNI.o \
+			x/swig/SWIG_SDLJoystickConstants.o x/swig/SWIG_SDLJoystick.o \
+			x/swig/SWIG_SDLJoystickJNI.o x/swig/SWIG_SDLMainConstants.o \
+			x/swig/SWIG_SDLMain.o x/swig/SWIG_SDLMainJNI.o \
+			x/swig/SWIG_SDLMixerConstants.o x/swig/SWIG_SDLMixer.o \
+			x/swig/SWIG_SDLMixerJNI.o x/swig/SWIG_SDLTTFConstants.o \
+			x/swig/SWIG_SDLTTF.o x/swig/SWIG_SDLTTFJNI.o \
+			x/swig/SWIG_SDLVideoConstants.o x/swig/SWIG_SDLVideo.o \
+			x/swig/SWIG_SDLVideoJNI.o \
+			x/swig/SWIGTYPE_p_f_p_void_p_unsigned_char_int__void.o \
+			x/swig/SWIGTYPE_p_int.o x/swig/SWIGTYPE_p__Mix_Music.o \
+			x/swig/SWIGTYPE_p_private_hwdata.o \
+			x/swig/SWIGTYPE_p_private_yuvhwdata.o \
+			x/swig/SWIGTYPE_p_private_yuvhwfuncs.o \
+			x/swig/SWIGTYPE_p_p_SDL_Rect.o \
+			x/swig/SWIGTYPE_p_p_unsigned_char.o \
+			x/swig/SWIGTYPE_p_SDL_BlitMap.o x/swig/SWIGTYPE_p_SDL_Cursor.o \
+			x/swig/SWIGTYPE_p__SDL_Joystick.o x/swig/SWIGTYPE_p_SDL_SysWMmsg.o \
+			x/swig/SWIGTYPE_p_short.o x/swig/SWIGTYPE_p_this.o \
+			x/swig/SWIGTYPE_p__TTF_Font.o x/swig/SWIGTYPE_p_unsigned_char.o \
+			x/swig/SWIGTYPE_p_unsigned_short.o x/swig/SWIGTYPE_p_void.o \
+			x/swig/TrackType.o
+
+OBJS := $(OBJS_MAIN) $(OBJS_AUDIO) $(OBJS_CDROM) $(OBJS_EVENT) \
+	$(OBJS_IMAGE) $(OBJS_JOYSTICK) $(OBJS_MIXER) $(OBJS_TTF) \
+	$(OBJS_UTIL) $(OBJS_VIDEO) $(OBJS_SWIG)
+
+.PHONY: all
+all: $(LIBJSDL)
+
+$(LIBJSDL): $(OBJS)
+	$(JC) -shared -Wl,-soname,$(SONAME) -o $@ $^ $(LDFLAGS)
+
+%.o: %.java
+	$(JC) $(CPPFLAGS) $(JFLAGS) $^ -c -o $@
+	$(OBJCOPY) -L '_ZGr8_$$_dummy' $@
+
+.PHONY: clean
+clean:
+	rm -f $(LIBJSDL) $(OBJS)
