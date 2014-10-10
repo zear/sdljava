@@ -1,0 +1,104 @@
+SWIG = swig
+
+CC = /opt/mipsel-linux-uclibc/usr/bin/mipsel-linux-gcc
+SYSROOT = /opt/mipsel-linux-uclibc
+
+CFLAGS=-O3 -fPIC
+
+INCLUDE=-I. -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux $(shell $(SYSROOT)/usr/bin/sdl-config --cflags)
+
+SDLJAVA_I=SDLAudio.i\
+          SDLCdrom.i\
+          SDLEvent.i\
+          SDLGFX.i\
+          SDLImage.i\
+          SDLJoystick.i\
+          SDLMain.i\
+          SDLMixer.i\
+          SDLTTF.i\
+          SDLVideo.i
+
+SDLJAVA_OBJ=SDLAudio_wrap.o\
+            SDLEvent_wrap.o\
+            SDLMain_wrap.o\
+            SDLVideo_wrap.o\
+            SDLJoystick_wrap.o\
+            SDLCdrom_wrap.o
+
+SDLJAVA_LIB=-lSDL
+
+SDLJAVA_MIXER_OBJ=SDLMixer_wrap.o
+SDLJAVA_MIXER_LIB=-lSDL -lSDL_mixer
+
+SDLJAVA_TTF_OBJ=SDLTTF_wrap.o
+SDLJAVA_TTF_LIB=-lSDL -lSDL_ttf
+
+SDLJAVA_IMAGE_OBJ=SDLImage_wrap.o
+SDLJAVA_IMAGE_LIB=-lSDL -lSDL_image
+
+SDLJAVA_GFX_OBJ=SDLGFX_wrap.o SDLVideo_wrap.o
+SDLJAVA_GFX_LIB=-lSDL -lSDL_gfx
+
+all:	libsdljava.so libsdljava_mixer.so libsdljava_ttf.so libsdljava_image.so
+
+gfx:    libsdljava_gfx.so
+
+#
+#
+# NOTE:  if you want to work on the sdljava native layer please un-comment these lines
+#
+#SDLAudio_wrap.c: SDLAudio.i common.i
+#	$(SWIG) $(INCLUDE) -importall -java -package sdljava.x.swig -outdir ../x/swig SDLAudio.i
+#
+#SDLCdrom_wrap.c: SDLCdrom.i common.i
+#	$(SWIG) $(INCLUDE) -importall -java -package sdljava.x.swig -outdir ../x/swig SDLCdrom.i
+#
+#SDLEvent_wrap.c: SDLEvent.i common.i
+#	$(SWIG) $(INCLUDE) -importall -java -package sdljava.x.swig -outdir ../x/swig SDLEvent.i
+#
+#SDLGFX_wrap.c: SDLGFX.i common.i
+#	$(SWIG) $(INCLUDE) -importall -java -package sdljava.x.swig -outdir ../x/swig SDLGFX.i
+#
+#SDLImage_wrap.c: SDLImage.i common.i
+#	$(SWIG) $(INCLUDE) -importall -java -package sdljava.x.swig -outdir ../x/swig SDLImage.i
+#
+#SDLJoystick_wrap.c: SDLJoystick.i common.i
+#	$(SWIG) $(INCLUDE) -importall -java -package sdljava.x.swig -outdir ../x/swig SDLJoystick.i
+#
+#SDLMain_wrap.c: SDLMain.i common.i
+#	$(SWIG) $(INCLUDE) -importall -java -package sdljava.x.swig -outdir ../x/swig SDLMain.i
+#
+#SDLMixer_wrap.c: SDLMixer.i common.i
+#	$(SWIG) $(INCLUDE) -importall -java -package sdljava.x.swig -outdir ../x/swig SDLMixer.i
+#
+#SDLTTF_wrap.c: SDLTTF.i common.i
+#	$(SWIG) $(INCLUDE) -importall -java -package sdljava.x.swig -outdir ../x/swig SDLTTF.i
+#
+#SDLVideo_wrap.c: SDLVideo.i common.i
+#	$(SWIG) $(INCLUDE) -importall -java -package sdljava.x.swig -outdir ../x/swig SDLVideo.i
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+
+libsdljava.so: $(SDLJAVA_OBJ)
+	$(CC) -shared -o libsdljava.so $(SDLJAVA_OBJ) $(SDLJAVA_LIB)
+	cp libsdljava.so ../../../lib
+
+libsdljava_mixer.so: $(SDLJAVA_MIXER_OBJ)
+	$(CC) -shared -o libsdljava_mixer.so $(SDLJAVA_MIXER_OBJ) $(SDLJAVA_MIXER_LIB)
+	cp libsdljava_mixer.so ../../../lib
+
+libsdljava_ttf.so: $(SDLJAVA_TTF_OBJ)
+	$(CC) -shared -o libsdljava_ttf.so $(SDLJAVA_TTF_OBJ) $(SDLJAVA_TTF_LIB)
+	cp libsdljava_ttf.so ../../../lib
+
+libsdljava_image.so: $(SDLJAVA_IMAGE_OBJ)
+	$(CC) -shared -o libsdljava_image.so $(SDLJAVA_IMAGE_OBJ) $(SDLJAVA_IMAGE_LIB)
+	cp libsdljava_image.so ../../../lib
+
+libsdljava_gfx.so: $(SDLJAVA_GFX_OBJ)
+	$(CC) -shared -o libsdljava_gfx.so $(SDLJAVA_GFX_OBJ) $(SDLJAVA_GFX_LIB)
+	cp libsdljava_gfx.so ../../../lib
+
+clean:
+	rm -rf *.o *.so
