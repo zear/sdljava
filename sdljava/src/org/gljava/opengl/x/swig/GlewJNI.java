@@ -9,6 +9,7 @@
 package org.gljava.opengl.x.swig;
 
 import java.nio.*;
+import java.util.Locale;
 
 public class GlewJNI {
 
@@ -17,7 +18,13 @@ public class GlewJNI {
       // if set don't loadLibrary ourselves, let client of library do it
       if (System.getProperty("sdljava.bootclasspath") == null &&
 	  System.getProperty("gljava.bootclasspath") == null) {
-	System.loadLibrary("gljava");
+		String OS = System.getProperty("os.name", "generic").toLowerCase(Locale.ENGLISH);
+		if(OS.indexOf("mac") >= 0 || OS.indexOf("darwin") >= 0) {
+			System.load(System.getProperty("user.dir")+ "/" + "libgljava.so");
+		}
+		else {
+			System.loadLibrary("gljava");
+		}
       }
 
     } catch (UnsatisfiedLinkError e) {

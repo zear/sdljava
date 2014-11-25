@@ -9,6 +9,7 @@
 package sdljava.x.swig;
 
 import java.nio.*;
+import java.util.Locale;
 
 class SWIG_SDLGfxJNI {
 
@@ -16,7 +17,13 @@ class SWIG_SDLGfxJNI {
     try {
       // if set don't loadLibrary ourselves, let client of library do it
       if (System.getProperty("sdljava.bootclasspath") == null) {
-        System.loadLibrary("sdljava_gfx");
+	String OS = System.getProperty("os.name", "generic").toLowerCase(Locale.ENGLISH);
+	if(OS.indexOf("mac") >= 0 || OS.indexOf("darwin") >= 0) {
+		System.load(System.getProperty("user.dir")+ "/" + "libsdljava_gfx.so");
+	}
+	else {
+		System.loadLibrary("sdljava_gfx");
+	}
       }
     } catch (UnsatisfiedLinkError e) {
       System.err.println("Native code library failed to load. \n" + e);

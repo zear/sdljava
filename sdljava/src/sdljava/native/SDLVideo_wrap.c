@@ -16,6 +16,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+#if defined(__APPLE__) && defined(TARGET_OS_MAC)
+    #include <dlfcn.h>
+#endif
+
 
 /* Support for throwing Java exceptions */
 typedef enum {
@@ -2651,6 +2655,20 @@ JNIEXPORT jint JNICALL Java_sdljava_x_swig_SWIG_1SDLVideoJNI_get_1SDL_1Overlay_1
     return jresult;
 }
 
+#if defined(__APPLE__) && defined(TARGET_OS_MAC)
+// This must be called before playing with SDL, else it won't work on osx.
+// fix found on http://stackoverflow.com/questions/12641755/sdl-video-init-causes-exception-on-mac-os-x-10-8
+
+void pre_init()
+{
+    void* cocoa_lib;
+
+    cocoa_lib = dlopen( "/System/Library/Frameworks/Cocoa.framework/Cocoa", RTLD_LAZY );
+    void (*nsappload)(void);
+    nsappload = (void(*)()) dlsym( cocoa_lib, "NSApplicationLoad");
+    nsappload();
+}
+#endif
 
 JNIEXPORT void JNICALL Java_sdljava_x_swig_SWIG_1SDLVideoJNI_set_1SDL_1Overlay_1h(JNIEnv *jenv, jclass jcls, jlong jarg1, jint jarg2) {
     SDL_Overlay *arg1 = (SDL_Overlay *) 0 ;
@@ -3006,6 +3024,11 @@ JNIEXPORT jlong JNICALL Java_sdljava_x_swig_SWIG_1SDLVideoJNI_SDL_1SetVideoMode(
     arg2 = (int)jarg2; 
     arg3 = (int)jarg3; 
     arg4 = (Uint32)jarg4; 
+
+#if defined(__APPLE__) && defined(TARGET_OS_MAC)
+    pre_init();
+#endif
+
     result = (SDL_Surface *)SDL_SetVideoMode(arg1,arg2,arg3,arg4);
     
     *(SDL_Surface **)&jresult = result; 
